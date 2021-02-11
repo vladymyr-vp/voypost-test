@@ -5,6 +5,7 @@ import Buttons from 'components/Button';
 import TextFieldsContainer from 'components/TextField';
 import TypographyContainer from 'components/Typography';
 import theme from './theme';
+import Signup from './components/pages/Signup';
 
 function App() {
   return (
@@ -15,6 +16,11 @@ function App() {
             <Buttons />
             <TextFieldsContainer />
             <TypographyContainer />
+          </ThemeProvider>
+        </Route>
+        <Route path="/signup">
+          <ThemeProvider theme={theme}>
+            <Signup />
           </ThemeProvider>
         </Route>
       </Switch>

@@ -5,12 +5,28 @@ interface IButton {
   color: 'inherit' | 'default' | 'primary' | 'secondary' | undefined;
   size: 'small' | 'medium' | 'large' | undefined;
   variant: 'text' | 'outlined' | 'contained' | undefined;
+  text: string;
+  disabled?: boolean;
+  onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
-const ButtonEl = ({ variant, size, color }: IButton) => {
+const ButtonEl = ({
+  variant,
+  size,
+  color,
+  text,
+  disabled,
+  onClick,
+}: IButton) => {
   return (
-    <Button variant={variant} size={size} color={color}>
-      Sign Up
+    <Button
+      variant={variant}
+      size={size}
+      color={color}
+      disabled={disabled}
+      onClick={onClick}
+    >
+      {text}
     </Button>
   );
 };

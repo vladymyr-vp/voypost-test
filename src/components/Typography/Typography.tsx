@@ -19,10 +19,11 @@ interface ITypog {
     | 'overline'
     | 'srOnly'
     | undefined;
+  text: string;
 }
 
-const TypographyEl = ({ variant }: ITypog) => {
-  return <Typography variant={variant}>Typography</Typography>;
+const TypographyEl = ({ variant, text }: ITypog) => {
+  return <Typography variant={variant}>{text}</Typography>;
 };
 
 export default TypographyEl;

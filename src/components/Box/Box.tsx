@@ -1,20 +1,26 @@
 import React from 'react';
 import Box from '@material-ui/core/Box';
+import { useTheme } from '@material-ui/core';
 
 interface IBoxComponent {
   children: React.ReactElement[] | React.ReactElement;
+  mb: number;
 }
 
-const BoxComponent = ({ children }: IBoxComponent) => {
+const BoxComponent = ({ children, mb }: IBoxComponent) => {
+  const theme = useTheme();
+
   return (
     <Box
+      mb={mb}
       style={{
         display: 'flex',
         justifyContent: 'space-evenly',
         flexWrap: 'wrap',
         width: '600px',
-        height: '300px',
+        // height: '300px',
         alignItems: 'center',
+        margin: theme.spacing(mb, 'auto'),
       }}
     >
       {children}

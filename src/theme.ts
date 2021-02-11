@@ -1,6 +1,7 @@
 import { createMuiTheme } from '@material-ui/core/styles';
 
 const theme = createMuiTheme({
+  spacing: 2,
   overrides: {
     MuiButton: {
       root: {
@@ -10,40 +11,53 @@ const theme = createMuiTheme({
         boxShadow: '0',
         textTransform: 'inherit',
         backgroundColor: '#6D9B12',
+        boxSizing: 'border-box'
       },
       label: {
         fontFamily: 'Roboto',
         fontSize: '16px',
         lineHeight: '19px',
       },
+      outlinedPrimary: {
+        color: '#FFF',
+        backgroundColor: '#6D9B12',
+           '&:hover': {
+          backgroundColor: 'green'
+        }
+      },
       containedPrimary: {
         backgroundColor: '#6D9B12',
-        padding: '16px 38px',
+        // padding: '16px 38px',
+       
         boxShadow: '0',
       },
       containedSecondary: {
         padding: '16px 38px',
         backgroundColor: '#4285F4',
       },
-      contained: {padding: '16px 38px', boxShadow: '0',},
+       outlinedSecondary: {
+        padding: '16px 38px',
+         backgroundColor: '#4285F4',
+        color: '#FFF'
+      },
+      outlined: {
+        backgroundColor: '#e0e0e0', color: 'rgba(0, 0, 0, 0.87)',
+     
+      },
+      contained: {padding: '16px 38px', boxShadow: '0'},
       containedSizeLarge: {
-        padding: '16px 107px'
+        padding: '16px 50px'
       },
       containedSizeSmall: {
-        padding: '10px 32px'
+        padding: '10px 32px',
       },
-      
-    
+      outlinedSizeLarge: {
+        padding: '16px 100px',
+        outline: 'none',
+        border: 'none',
+      },
+        
 
-        // primary: {background: '#6D9B12'},
-        // secondary: {background: '#4285F4'},
-        // default:{background: '#E5E5E5', color: '#636363'},
-        // large: {padding: '16px 107px'},
-        // small: {padding: '10px 32px'},
-        // medium:{padding: '16px 38px'}
-      
-      
-      
     },
     MuiInputBase: {
       root: {
@@ -79,7 +93,7 @@ const theme = createMuiTheme({
       root: {
           display: 'flex',
           justifyContent: 'flex-start',
-          alignItems: 'center',
+        alignItems: 'center',
       },
     
     },
@@ -91,20 +105,19 @@ const theme = createMuiTheme({
         disableAnimation: true,
         color: '#000000',
         '& + .MuiFormControl .MuiInputBase-input:focus': {
-        color: '#6D9B12'
+        color: '#6D9B12',
+        },
+          '& + .MuiFormControl .MuiInputBase input': {
+          borderRadius: '6px',
+          borderColor: '#FF0000',
+          borderWidth: '1px'
       }
       },
       formControl: {
         transform: 'none',
-        top: '-30%'
+        top: '-35%'
       },
-      error: {
-        '& + .MuiFormControl .MuiInputBase input': {
-          borderRadius: '6px',
-          borderColor: '#FF0000',
-          borderWidth: '1px'
-        }
-      }
+    
     },
     MuiFormHelperText: {
       root: {
