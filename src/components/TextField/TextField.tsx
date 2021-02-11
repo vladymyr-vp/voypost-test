@@ -8,11 +8,12 @@ interface ITextField {
   label: string;
   helpText?: string;
   type?: string;
+  error?: boolean;
 }
 
-const TextFieldEl = ({ label, helpText, type }: ITextField) => {
+const TextFieldEl = ({ label, helpText, type, error }: ITextField) => {
   return (
-    <FormControl error>
+    <FormControl error={error}>
       <InputLabel htmlFor="textField" shrink={true}>
         {label}
       </InputLabel>

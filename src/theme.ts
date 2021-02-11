@@ -48,49 +48,71 @@ const theme = createMuiTheme({
     MuiInputBase: {
       root: {
           padding: 0,
-          '&$ input:focused': {
-          border: '1px solid #6D9B12',
-          overflow: 'hidden',
-          borderRadius: 4,
-          backgroundColor: '#EFEFEF',
-          '&$focused': {
-          backgroundColor: '#fff',
-          border: '1px solid #6D9B12',
-          },
-          '&$:invalid': {
-          backgroundColor: '#fff',
-          border: '1px solid #FF0000',
-          },
+          '&$ input:focus': {
+            // borderColor: '#6D9B12',
+            // borderWidth: '1px',
+            // borderStyle: 'solid',
+            // overflow: 'hidden',
+            // borderRadius: 6,
+            // backgroundColor: '#EFEFEF',
         },
+          
       },
-      input: {padding: '17px 14px',},
+          input: {
+            padding: '25px 354px 25px 14px', boxSizing: 'border-box',
+            borderStyle: 'solid',
+       '&:focus': {
+         borderRadius: '6px',
+         borderColor: '#6D9B12',
+         borderWidth: '1px',
+         borderStyle: 'solid'
+        },
+         '&:invalid': {
+          borderRadius: '6px',
+          borderColor: '#FF0000',
+          borderWidth: '1px'
+          },
+      },
+  
     },
     MuiFormControl: {
       root: {
           display: 'flex',
-          justifyContent: 'center',
+          justifyContent: 'flex-start',
           alignItems: 'center',
-          margin: '0',
-          '&$error': {
-          backgroundColor: '#fff',
-          border: '1px solid #FF0000',
-        },
       },
     
     },
     MuiInputLabel: {
       root: {
+        fontWeight: 900,
+        fontSize: '14px',
+        lineHeight: '1.17',
         disableAnimation: true,
-        '&$focused': {
-          color: '#6D9B12',
-        },
-        '&$error': {
-          color: '#FF0000',
-        },
+        color: '#000000',
+        '& + .MuiFormControl .MuiInputBase-input:focus': {
+        color: '#6D9B12'
+      }
       },
+      formControl: {
+        transform: 'none',
+        top: '-30%'
+      },
+      error: {
+        '& + .MuiFormControl .MuiInputBase input': {
+          borderRadius: '6px',
+          borderColor: '#FF0000',
+          borderWidth: '1px'
+        }
+      }
     },
     MuiFormHelperText: {
       root: {
+        fontFamily: 'Roboto',
+        fontStyle: 'normal',
+        fontWeight: 300,
+        fontSize: '14px',
+        lineHeight: '1.29',
         '&$focused': {
           color: '#6D9B12',
         },
