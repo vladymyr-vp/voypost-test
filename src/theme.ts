@@ -107,7 +107,7 @@ const theme = createMuiTheme({
         '& + .MuiFormControl .MuiInputBase-input:focus': {
         color: '#6D9B12',
         },
-          '& + .MuiFormControl .MuiInputBase input': {
+          '& + .MuiFormControl .MuiInputBase input:invalid': {
           borderRadius: '6px',
           borderColor: '#FF0000',
           borderWidth: '1px'
@@ -121,17 +121,13 @@ const theme = createMuiTheme({
     },
     MuiFormHelperText: {
       root: {
+        display: 'block',
+        color: '#FF0000',
         fontFamily: 'Roboto',
         fontStyle: 'normal',
         fontWeight: 300,
         fontSize: '14px',
         lineHeight: '1.29',
-        '&$focused': {
-          color: '#6D9B12',
-        },
-        '&$error': {
-          color: '#FF0000',
-        },
       },
     },
     MuiTextField: {

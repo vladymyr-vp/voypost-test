@@ -1,43 +1,66 @@
 import React from 'react';
+import * as yup from 'yup';
+
 import Box from '../Box';
 import ButtonEl from '../Button/Button';
 import TextFieldEl from '../TextField/TextField';
 import TypographyEl from '../Typography/Typography';
 import { Formik, Field, Form } from 'formik';
 
-const sleep = (ms: number) => new Promise(r => setTimeout(r, ms));
+const SignUpSchema = yup.object().shape({
+  name: yup
+    .string()
+    .min(2, 'Too Short!')
+    .max(50, 'Too Long!')
+    .required('Full Name is required'),
+
+  email: yup.string().email().required('Email is required'),
+
+  password: yup
+    .string()
+    .required('Password is required')
+    .min(
+      8,
+      'Please input your password! The password must be at least 8 characters!',
+    ),
+});
 
 const Signup = () => {
-  const [name, setName] = React.useState('');
-  const [email, setEmail] = React.useState('');
-  const [password, setPassword] = React.useState('');
+  //   const [name, setName] = React.useState('');
+  //   const [email, setEmail] = React.useState('');
+  //   const [password, setPassword] = React.useState('');
+  //   const [toggle, setToggle] = React.useState(false);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    switch (e.target.id) {
-      case 'name':
-        setName(e.target.value);
-        break;
+  //   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  //     switch (e.target.id) {
+  //       case 'name':
+  //         setName(e.target.value);
+  //         break;
 
-      case 'email':
-        setEmail(e.target.value);
-        break;
+  //       case 'email':
+  //         setEmail(e.target.value);
+  //         break;
 
-      case 'password':
-        setPassword(e.target.value);
-        break;
+  //       case 'password':
+  //         setPassword(e.target.value);
+  //         break;
 
-      default:
-        return;
-    }
-  };
+  //       case 'toggle':
+  //         setToggle(state => !state);
+  //         break;
 
-  const handleSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault();
-    setName('');
-    setEmail('');
-    setPassword('');
-    console.log(name, email, password);
-  };
+  //       default:
+  //         return;
+  //     }
+  //   };
+
+  //   const handleSubmit = (e: React.FormEvent<HTMLFormElement> | undefined) => {
+  //     e?.preventDefault();
+  //     setName('');
+  //     setEmail('');
+  //     setPassword('');
+  //     console.log(name, email, password);
+  //   };
 
   return (
     <Box mb={1}>
@@ -65,84 +88,108 @@ for success"
       </Box>
       <Box mb={3}>
         <Formik
-          initialValues={{ email: email, password: password, name: name }}
-          validate={values => {
-            const errors = {
-              email: '',
-            };
-            if (!values.email) {
-              errors.email = 'Required';
-            } else if (
-              !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
-            ) {
-              errors.email = 'Invalid email address';
-            }
-            return errors;
+          initialValues={{
+            email: '',
+            password: '',
+            name: '',
+            toggle: false,
           }}
-          onSubmit={(values, { setSubmitting }) => {
-            setTimeout(() => {
-              alert(JSON.stringify(values, null, 2));
-              setSubmitting(false);
-            }, 400);
+          validationSchema={SignUpSchema}
+          onSubmit={values => {
+            console.log(values);
           }}
         >
-          <Form>
-            <TextFieldEl
-              label="Full Name"
-              mb={10}
-              onChange={handleChange}
-              id="name"
-              value={name}
-              type="name"
-              name="name"
-            />
-            <TextFieldEl
-              label="Email Address"
-              type="email"
-              mb={25}
-              onChange={handleChange}
-              id="email"
-              name="email"
-              value={email}
-            />
-            <TextFieldEl
-              label="Password (8 characters)"
-              helpText="Please input your password! The password must be at least 8 characters!"
-              type="password"
-              name="password"
-              mb={25}
-              onChange={handleChange}
-              id="password"
-              value={password}
-            />
-            <div>
-              <label>
-                <Field type="checkbox" name="checked" value="rules" />
-                Creating an account means you’re okay with our{' '}
-                <a href="/" target="_blank">
-                  Terms of Service
-                </a>
-                ,{' '}
-                <a href="/" target="_blank">
-                  Privacy Policy
-                </a>
-                , and our default{' '}
-                <a href="/" target="_blank">
-                  Notification Settings
-                </a>
-                .
-              </label>
-            </div>
-            <div style={{ marginTop: '10px' }}>
-              <ButtonEl
-                variant="outlined"
-                size="large"
-                color="primary"
-                text="Sign Up"
-                onClick={handleSubmit}
-              />
-            </div>
-          </Form>
+          {formik => {
+            const {
+              values,
+              errors,
+              isValid,
+              handleChange,
+              handleSubmit,
+            } = formik;
+            return (
+              <Form onSubmit={handleSubmit}>
+                <TextFieldEl
+                  label="Full Name"
+                  mb={10}
+                  onChange={handleChange}
+                  id="name"
+                  value={values.name}
+                  helpText={errors.name}
+                  type="name"
+                  name="name"
+                />
+                <TextFieldEl
+                  label="Email Address"
+                  type="email"
+                  mb={25}
+                  onChange={handleChange}
+                  helpText={errors.email}
+                  id="email"
+                  name="email"
+                  value={values.email}
+                />
+                <TextFieldEl
+                  label="Password (8 characters)"
+                  //   helpText="Please input your password! The password must be at least 8 characters!"
+                  helpText={errors.password}
+                  type="password"
+                  name="password"
+                  mb={25}
+                  onChange={handleChange}
+                  id="password"
+                  value={values.password}
+                />
+                <div>
+                  <label id="checkboxLabel">
+                    <Field
+                      type="checkbox"
+                      name="checked"
+                      checked={values.toggle}
+                      id="toggle"
+                      onClick={(e: React.ChangeEvent<HTMLInputElement>) => {
+                        if (
+                          e.currentTarget.id === 'toggle' ||
+                          e.currentTarget.id === 'checkboxLabel'
+                        ) {
+                          values.toggle = !values.toggle;
+                        }
+                      }}
+                    />
+                    Creating an account means you’re okay with our{' '}
+                    <a href="/" target="_blank">
+                      Terms of Service
+                    </a>
+                    ,{' '}
+                    <a href="/" target="_blank">
+                      Privacy Policy
+                    </a>
+                    , and our default{' '}
+                    <a href="/" target="_blank">
+                      Notification Settings
+                    </a>
+                    .
+                  </label>
+                </div>
+                <div style={{ marginTop: '10px' }}>
+                  <ButtonEl
+                    variant="outlined"
+                    size="large"
+                    color="primary"
+                    text="Sign Up"
+                    onClick={handleSubmit}
+                    disabled={
+                      !values.toggle ||
+                      !values.name ||
+                      !values.email ||
+                      !values.password ||
+                      !isValid
+                    }
+                  />
+                </div>
+              </Form>
+            );
+          }}
         </Formik>
       </Box>
     </Box>

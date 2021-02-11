@@ -7,7 +7,7 @@ interface IButton {
   variant: 'text' | 'outlined' | 'contained' | undefined;
   text: string;
   disabled?: boolean;
-  onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
+  onClick?: (e: any) => void;
 }
 
 const ButtonEl = ({
