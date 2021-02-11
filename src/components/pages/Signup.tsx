@@ -1,9 +1,10 @@
 import React from 'react';
 import * as yup from 'yup';
-import Checkbox, { CheckboxProps } from '@material-ui/core/Checkbox';
-import { Formik, Field, Form } from 'formik';
+import Checkbox from '@material-ui/core/Checkbox';
+import { Formik, Form } from 'formik';
 import Box from '../Box';
 import ButtonEl from '../Button/Button';
+import InputLabel from '@material-ui/core/InputLabel';
 import TextFieldEl from '../TextField/TextField';
 import TypographyEl from '../Typography/Typography';
 
@@ -34,27 +35,30 @@ const Signup = () => {
 
   return (
     <Box mb={1}>
-      <TypographyEl
-        variant="h2"
-        text="Sign up to set your brand up
-for success"
-      />
-
-      <ButtonEl
-        variant="contained"
-        size="large"
-        color="secondary"
-        text="Sign up with Google"
-      />
-      <ButtonEl
-        variant="contained"
-        size="large"
-        color="default"
-        text="Sign up with Microsoft"
-      />
+      <Box mb={17}>
+        <Box mb={15}>
+          <TypographyEl
+            variant="caption"
+            text={`Sign up to set your brand up
+             for success`}
+          />
+        </Box>
+        <ButtonEl
+          variant="contained"
+          size="large"
+          color="secondary"
+          text="Sign up with Google"
+        />
+        <ButtonEl
+          variant="contained"
+          size="large"
+          color="default"
+          text="Sign up with Microsoft"
+        />
+      </Box>
 
       <Box mb={2}>
-        <p>or</p>
+        <TypographyEl variant="body1" text="or" />
       </Box>
       <Box mb={3}>
         <Formik
@@ -110,53 +114,64 @@ for success"
                   value={values.password}
                   showIcon
                 />
-                <div>
-                  <label id="checkboxLabel">
+
+                <div
+                  style={{
+                    display: 'flex',
+                    justifyContent: 'flex-start',
+                    flexWrap: 'wrap',
+                    width: '550px',
+                    margin: '0 auto',
+                  }}
+                >
+                  <InputLabel
+                    id="checkboxLabel"
+                    style={{
+                      display: 'flex',
+                      fontWeight: 300,
+                      fontSize: '14px',
+                      lineHeight: '18px',
+                      alignItems: 'center',
+                    }}
+                  >
                     <Checkbox
-                      //   type="checkbox"
                       name="checked"
                       checked={checked}
                       id="toggle"
-                      //   onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                      //     if (
-                      //       e.currentTarget.id === 'toggle' ||
-                      //       e.currentTarget.id === 'checkboxLabel'
-                      //     ) {
-                      //       values.checked = !e.target.checked;
-                      //     }
-                      //   }}
                       onChange={handleCheckboxChange}
                     />
-                    Creating an account means you’re okay with our{' '}
-                    <a href="/" target="_blank">
-                      Terms of Service
-                    </a>
-                    ,{' '}
-                    <a href="/" target="_blank">
-                      Privacy Policy
-                    </a>
-                    , and our default{' '}
-                    <a href="/" target="_blank">
-                      Notification Settings
-                    </a>
-                    .
-                  </label>
-                </div>
-                <div style={{ marginTop: '10px' }}>
-                  <ButtonEl
-                    variant="outlined"
-                    size="large"
-                    color="primary"
-                    text="Sign Up"
-                    onClick={handleSubmit}
-                    disabled={
-                      !checked ||
-                      !values.name ||
-                      !values.email ||
-                      !values.password ||
-                      !isValid
-                    }
-                  />
+                    <div>
+                      Creating an account means you’re okay with our{' '}
+                      <a href="/" target="_blank">
+                        Terms of Service,
+                      </a>
+                      <a href="/" target="_blank">
+                        {' '}
+                        Privacy Policy,
+                      </a>
+                      <br /> and our default{' '}
+                      <a href="/" target="_blank">
+                        Notification Settings.
+                      </a>
+                    </div>
+                  </InputLabel>
+
+                  <div style={{ marginTop: '10px' }}>
+                    <ButtonEl
+                      variant="outlined"
+                      size="large"
+                      color="primary"
+                      text="Sign Up"
+                      onClick={handleSubmit}
+                      disabled={
+                        !checked ||
+                        !values.name ||
+                        !values.email ||
+                        !values.password ||
+                        !isValid
+                      }
+                    />
+                  </div>
                 </div>
               </Form>
             );

@@ -63,18 +63,17 @@ const theme = createMuiTheme({
       root: {
           padding: 0,
           '&$ input:focus': {
-            // borderColor: '#6D9B12',
-            // borderWidth: '1px',
-            // borderStyle: 'solid',
-            // overflow: 'hidden',
-            // borderRadius: 6,
-            // backgroundColor: '#EFEFEF',
+          borderColor: '#6D9B12',
+          borderWidth: '1px',
+          borderStyle: 'solid'
         },
           
       },
-          input: {
-            padding: '25px 354px 25px 14px', boxSizing: 'border-box',
+      input: {
+            borderColor: 'transparent',
+            borderWidth: '1px',
             borderStyle: 'solid',
+            padding: '25px 354px 25px 14px', boxSizing: 'border-box',
        '&:focus': {
          borderRadius: '6px',
          borderColor: '#6D9B12',
@@ -93,7 +92,7 @@ const theme = createMuiTheme({
       root: {
           display: 'flex',
           justifyContent: 'flex-start',
-        alignItems: 'center',
+          alignItems: 'center',
       },
     
     },
@@ -104,19 +103,19 @@ const theme = createMuiTheme({
         lineHeight: '1.17',
         disableAnimation: true,
         color: '#000000',
-        '& + .MuiFormControl .MuiInputBase-input:focus': {
-        color: '#6D9B12',
+        '& + .MuiFormControl .MuiInputBase input:focus': {
+          color: '#6D9B12',
         },
-          '& + .MuiFormControl .MuiInputBase input:invalid': {
+        '& + .MuiFormControl .MuiInputBase input:error': {
           borderRadius: '6px',
           borderColor: '#FF0000',
           borderWidth: '1px'
-      }
+        },
       },
       formControl: {
         transform: 'none',
-        top: '-35%'
-      },
+        top: '-40%'
+      }
     
     },
     MuiFormHelperText: {
@@ -128,6 +127,9 @@ const theme = createMuiTheme({
         fontWeight: 300,
         fontSize: '14px',
         lineHeight: '1.29',
+        position: 'absolute',
+        bottom: -20,
+        left: 0
       },
     },
     MuiTextField: {
@@ -152,7 +154,9 @@ const theme = createMuiTheme({
       h5: {fontWeight: 500, fontSize: '18px', lineHeight: '21px'},
       h6: {fontWeight: 700, fontSize: '16px', lineHeight: '19px' },
       subtitle1: { fontWeight: 700, fontSize: '14px', lineHeight: '16px' },
-      subtitle2: {fontWeight: 300, fontSize: '14px', lineHeight: '16px'},
+      subtitle2: { fontWeight: 300, fontSize: '14px', lineHeight: '16px' },
+      body1: { fontWeight: 700, fontSize: '16px', lineHeight: '19px', textAlign: 'center' },
+      caption: {fontWeight: 700, fontSize: '32px', lineHeight: '37px', whiteSpace: 'pre-line', margin: '0 0 0 25px'}
     },
   },
 });
