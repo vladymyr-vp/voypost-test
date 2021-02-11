@@ -1,11 +1,11 @@
 import React from 'react';
 import * as yup from 'yup';
-
+import Checkbox, { CheckboxProps } from '@material-ui/core/Checkbox';
+import { Formik, Field, Form } from 'formik';
 import Box from '../Box';
 import ButtonEl from '../Button/Button';
 import TextFieldEl from '../TextField/TextField';
 import TypographyEl from '../Typography/Typography';
-import { Formik, Field, Form } from 'formik';
 
 const SignUpSchema = yup.object().shape({
   name: yup
@@ -26,41 +26,11 @@ const SignUpSchema = yup.object().shape({
 });
 
 const Signup = () => {
-  //   const [name, setName] = React.useState('');
-  //   const [email, setEmail] = React.useState('');
-  //   const [password, setPassword] = React.useState('');
-  //   const [toggle, setToggle] = React.useState(false);
+  const [checked, setChecked] = React.useState(false);
 
-  //   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-  //     switch (e.target.id) {
-  //       case 'name':
-  //         setName(e.target.value);
-  //         break;
-
-  //       case 'email':
-  //         setEmail(e.target.value);
-  //         break;
-
-  //       case 'password':
-  //         setPassword(e.target.value);
-  //         break;
-
-  //       case 'toggle':
-  //         setToggle(state => !state);
-  //         break;
-
-  //       default:
-  //         return;
-  //     }
-  //   };
-
-  //   const handleSubmit = (e: React.FormEvent<HTMLFormElement> | undefined) => {
-  //     e?.preventDefault();
-  //     setName('');
-  //     setEmail('');
-  //     setPassword('');
-  //     console.log(name, email, password);
-  //   };
+  const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setChecked(event.target.checked);
+  };
 
   return (
     <Box mb={1}>
@@ -92,7 +62,6 @@ for success"
             email: '',
             password: '',
             name: '',
-            toggle: false,
           }}
           validationSchema={SignUpSchema}
           onSubmit={values => {
@@ -139,22 +108,24 @@ for success"
                   onChange={handleChange}
                   id="password"
                   value={values.password}
+                  showIcon
                 />
                 <div>
                   <label id="checkboxLabel">
-                    <Field
-                      type="checkbox"
+                    <Checkbox
+                      //   type="checkbox"
                       name="checked"
-                      checked={values.toggle}
+                      checked={checked}
                       id="toggle"
-                      onClick={(e: React.ChangeEvent<HTMLInputElement>) => {
-                        if (
-                          e.currentTarget.id === 'toggle' ||
-                          e.currentTarget.id === 'checkboxLabel'
-                        ) {
-                          values.toggle = !values.toggle;
-                        }
-                      }}
+                      //   onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                      //     if (
+                      //       e.currentTarget.id === 'toggle' ||
+                      //       e.currentTarget.id === 'checkboxLabel'
+                      //     ) {
+                      //       values.checked = !e.target.checked;
+                      //     }
+                      //   }}
+                      onChange={handleCheckboxChange}
                     />
                     Creating an account means you’re okay with our{' '}
                     <a href="/" target="_blank">
@@ -179,7 +150,7 @@ for success"
                     text="Sign Up"
                     onClick={handleSubmit}
                     disabled={
-                      !values.toggle ||
+                      !checked ||
                       !values.name ||
                       !values.email ||
                       !values.password ||
