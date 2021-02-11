@@ -2,8 +2,7 @@ import React from 'react';
 import Typography from '@material-ui/core/Typography';
 
 interface ITypog {
-  styles?: any;
-  sizeVar?:
+  variant:
     | 'inherit'
     | 'h1'
     | 'h2'
@@ -22,12 +21,8 @@ interface ITypog {
     | undefined;
 }
 
-const TypographyEl = ({ sizeVar, styles }: ITypog) => {
-  return (
-    <Typography variant={sizeVar} style={{ ...styles }}>
-      Typography
-    </Typography>
-  );
+const TypographyEl = ({ variant }: ITypog) => {
+  return <Typography variant={variant}>Typography</Typography>;
 };
 
 export default TypographyEl;

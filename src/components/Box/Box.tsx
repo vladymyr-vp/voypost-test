@@ -3,11 +3,23 @@ import Box from '@material-ui/core/Box';
 
 interface IBoxComponent {
   children: React.ReactElement[] | React.ReactElement;
-  boxprops: object;
 }
 
-const BoxComponent = ({ children, boxprops }: IBoxComponent) => {
-  return <Box style={{ ...boxprops }}>{children}</Box>;
+const BoxComponent = ({ children }: IBoxComponent) => {
+  return (
+    <Box
+      style={{
+        display: 'flex',
+        justifyContent: 'space-evenly',
+        flexWrap: 'wrap',
+        width: '600px',
+        height: '300px',
+        alignItems: 'center',
+      }}
+    >
+      {children}
+    </Box>
+  );
 };
 
 export default BoxComponent;

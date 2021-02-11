@@ -4,16 +4,7 @@ import BoxComponent from '../Box/Box';
 
 const TextFieldsContainer = () => {
   return (
-    <BoxComponent
-      boxprops={{
-        display: 'flex',
-        justifyContent: 'space-evenly',
-        flexWrap: 'wrap',
-        width: '600px',
-        height: '300px',
-        alignItems: 'center',
-      }}
-    >
+    <BoxComponent>
       <ValidationTextField label="Full Name" />
       <ValidationTextField label="Email Address" type="email" />
       <ValidationTextField
