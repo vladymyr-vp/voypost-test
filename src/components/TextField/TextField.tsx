@@ -31,11 +31,10 @@ const TextFieldEl = ({
   mb,
   id,
   value,
-
   name,
   showIcon = false,
   onChange,
-}: ITextField) => {
+}: ITextField): JSX.Element => {
   const [showPassword, setShowpassword] = React.useState(false);
 
   const handleClickShowPassword = () => {
@@ -44,7 +43,7 @@ const TextFieldEl = ({
 
   const handleMouseDownPassword = (
     event: React.MouseEvent<HTMLButtonElement>,
-  ) => {
+  ): void => {
     event.preventDefault();
   };
 
@@ -68,24 +67,15 @@ const TextFieldEl = ({
           onChange={onChange}
         />
         {showIcon && (
-          <div
-            style={{
-              display: 'block',
-              position: 'absolute',
-              right: 0,
-              bottom: 30,
-            }}
-          >
-            <InputAdornment position="end">
-              <IconButton
-                aria-label="toggle password visibility"
-                onClick={handleClickShowPassword}
-                onMouseDown={handleMouseDownPassword}
-              >
-                {showPassword ? <Visibility /> : <VisibilityOff />}
-              </IconButton>
-            </InputAdornment>
-          </div>
+          <InputAdornment position="end">
+            <IconButton
+              aria-label="toggle password visibility"
+              onClick={handleClickShowPassword}
+              onMouseDown={handleMouseDownPassword}
+            >
+              {showPassword ? <Visibility /> : <VisibilityOff />}
+            </IconButton>
+          </InputAdornment>
         )}
         <FormHelperText>{helpText}</FormHelperText>
       </FormControl>

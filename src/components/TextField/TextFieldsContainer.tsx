@@ -2,7 +2,7 @@ import React from 'react';
 import TextFieldEl from './TextField';
 import BoxComponent from '../Box/Box';
 
-const TextFieldsContainer = () => {
+const TextFieldsContainer = (): JSX.Element => {
   return (
     <BoxComponent mb={1}>
       <TextFieldEl label="Full Name" mb={10} />

@@ -2,7 +2,7 @@ import React from 'react';
 import TypographyEl from './Typography';
 import BoxComponent from '../Box/Box';
 
-const TypographyContainer = () => {
+const TypographyContainer = (): JSX.Element => {
   return (
     <BoxComponent mb={1}>
       <TypographyEl variant="h1" text="Typography" />

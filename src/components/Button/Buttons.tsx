@@ -2,7 +2,7 @@ import React from 'react';
 import ButtonEl from './Button';
 import BoxComponent from '../Box/Box';
 
-const Buttons = () => {
+const Buttons = (): JSX.Element => {
   return (
     <BoxComponent mb={1}>
       <BoxComponent mb={5}>

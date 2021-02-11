@@ -3,6 +3,15 @@ import { createMuiTheme } from '@material-ui/core/styles';
 const theme = createMuiTheme({
   spacing: 2,
   overrides: {
+
+    MuiInputAdornment: {
+      root: {
+          display: 'block',
+          position: 'absolute',
+          right: 5,
+          bottom: 50,
+      }
+    },
     MuiButton: {
       root: {
         color: '#FFFFFF',
@@ -118,6 +127,7 @@ const theme = createMuiTheme({
       }
     
     },
+
     MuiFormHelperText: {
       root: {
         display: 'block',
@@ -156,7 +166,8 @@ const theme = createMuiTheme({
       subtitle1: { fontWeight: 700, fontSize: '14px', lineHeight: '16px' },
       subtitle2: { fontWeight: 300, fontSize: '14px', lineHeight: '16px' },
       body1: { fontWeight: 700, fontSize: '16px', lineHeight: '19px', textAlign: 'center' },
-      caption: {fontWeight: 700, fontSize: '32px', lineHeight: '37px', whiteSpace: 'pre-line', margin: '0 0 0 25px'}
+      caption: { fontWeight: 700, fontSize: '32px', lineHeight: '37px', whiteSpace: 'pre-line', margin: '0 0 0 25px' },
+      body2: {fontWeight: 700, fontSize: '16px', lineHeight: '19px', textAlign: 'center', margin: '0 0 0 10px' }
     },
   },
 });

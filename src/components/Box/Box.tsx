@@ -7,7 +7,7 @@ interface IBoxComponent {
   mb: number;
 }
 
-const BoxComponent = ({ children, mb }: IBoxComponent) => {
+const BoxComponent = ({ children, mb }: IBoxComponent): JSX.Element => {
   const theme = useTheme();
 
   return (
@@ -18,7 +18,6 @@ const BoxComponent = ({ children, mb }: IBoxComponent) => {
         justifyContent: 'space-evenly',
         flexWrap: 'wrap',
         width: '600px',
-        // height: '300px',
         alignItems: 'center',
         margin: theme.spacing(mb, 'auto'),
       }}

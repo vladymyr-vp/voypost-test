@@ -7,6 +7,8 @@ import ButtonEl from '../Button/Button';
 import InputLabel from '@material-ui/core/InputLabel';
 import TextFieldEl from '../TextField/TextField';
 import TypographyEl from '../Typography/Typography';
+import googleIcon from 'images/google.svg';
+import microsoftIcon from 'images/microsoft.svg';
 
 const SignUpSchema = yup.object().shape({
   name: yup
@@ -26,10 +28,12 @@ const SignUpSchema = yup.object().shape({
     ),
 });
 
-const Signup = () => {
-  const [checked, setChecked] = React.useState(false);
+const Signup = (): JSX.Element => {
+  const [checked, setChecked] = React.useState<boolean>(false);
 
-  const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleCheckboxChange = (
+    event: React.ChangeEvent<HTMLInputElement>,
+  ): void => {
     setChecked(event.target.checked);
   };
 
@@ -48,12 +52,14 @@ const Signup = () => {
           size="large"
           color="secondary"
           text="Sign up with Google"
+          icon={googleIcon}
         />
         <ButtonEl
           variant="contained"
           size="large"
           color="default"
           text="Sign up with Microsoft"
+          icon={microsoftIcon}
         />
       </Box>
 

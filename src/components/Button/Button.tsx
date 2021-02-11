@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
+import Typography from '../Typography/Typography';
 
 interface IButton {
   color: 'inherit' | 'default' | 'primary' | 'secondary' | undefined;
@@ -8,6 +9,7 @@ interface IButton {
   text: string;
   disabled?: boolean;
   onClick?: (e: any) => void;
+  icon?: string;
 }
 
 const ButtonEl = ({
@@ -17,7 +19,8 @@ const ButtonEl = ({
   text,
   disabled,
   onClick,
-}: IButton) => {
+  icon,
+}: IButton): JSX.Element => {
   return (
     <Button
       variant={variant}
@@ -26,7 +29,8 @@ const ButtonEl = ({
       disabled={disabled}
       onClick={onClick}
     >
-      {text}
+      {icon && <img src={icon} alt="buttonIcon"></img>}{' '}
+      <Typography variant="body2" text={text} />
     </Button>
   );
 };

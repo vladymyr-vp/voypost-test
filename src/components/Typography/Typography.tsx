@@ -1,7 +1,7 @@
 import React from 'react';
 import Typography from '@material-ui/core/Typography';
 
-interface ITypog {
+interface ITypography {
   variant:
     | 'inherit'
     | 'h1'
@@ -22,7 +22,7 @@ interface ITypog {
   text: string;
 }
 
-const TypographyEl = ({ variant, text }: ITypog) => {
+const TypographyEl = ({ variant, text }: ITypography): JSX.Element => {
   return <Typography variant={variant}>{text}</Typography>;
 };
 
