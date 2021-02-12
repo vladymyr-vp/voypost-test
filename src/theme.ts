@@ -79,14 +79,9 @@ const theme = createMuiTheme({
     MuiInputBase: {
       root: {
           padding: 0,
-          '&$ input:focus': {
-          borderColor: colors.green,
-          borderWidth: '1px',
-          borderStyle: 'solid',
-          
-        },
-          
+        
       },
+          
       input: {
         background: '#EFEFEF',
         borderColor: 'transparent',
@@ -94,19 +89,20 @@ const theme = createMuiTheme({
         borderRadius: '6px',
         borderStyle: 'solid',
         padding: defaultTheme.spacing(3.125, 44.25, 3.125, 1.75), boxSizing: 'border-box',
-       '&:focus': {
-         borderRadius: '6px',
-         borderColor: colors.green,
-         borderWidth: '1px',
-         borderStyle: 'solid'
-        },
-         '&:invalid': {
-          borderRadius: '6px',
+          '&:focus': {
+          borderColor: colors.green,
+          borderWidth: '1px',
+          borderStyle: 'solid',
+        }, 
+          '&:invalid': {
           borderColor: colors.red,
-          borderWidth: '1px'
-          },
+          borderWidth: '1px',
+          borderStyle: 'solid',
+        }, 
+      
+
       },
-  
+    
     },
     MuiFormControl: {
       root: {
@@ -114,7 +110,6 @@ const theme = createMuiTheme({
           justifyContent: 'flex-start',
           alignItems: 'center',
       },
-    
     },
     MuiInputLabel: {
       root: {
@@ -123,22 +118,23 @@ const theme = createMuiTheme({
         lineHeight: '1.17',
         disableAnimation: true,
         color: '#000000',
-        '& + .MuiFormControl .MuiInputBase input:focus': {
-          color: colors.green,
-        },
-        '& + .MuiFormControl .MuiInputBase input:error': {
-          borderRadius: '6px',
-          borderColor: '#FF0000',
-          borderWidth: '1px'
-        },
+
       },
       formControl: {
         transform: 'none',
         top: '-10%'
-      }
-    
+      },
     },
-
+    MuiFormLabel: {
+      root: {
+        '&.Mui-focused': {
+        color: colors.green
+        },
+        '& + .MuiInputBase-input:invalid': {
+          color: colors.red
+        }
+      },
+    },
     MuiFormHelperText: {
       root: {
         display: 'block',
