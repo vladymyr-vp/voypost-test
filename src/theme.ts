@@ -1,27 +1,36 @@
 import { createMuiTheme } from '@material-ui/core/styles';
 
-const theme = createMuiTheme({
-  spacing: 2,
-  overrides: {
+const colors = {
+  red: '#FF0000',
+  white: '#FFFFFF',
+  green: '#6D9B12',
+  blue: '#4285F4',
+  gray: '#e0e0e0'
+}
 
+const defaultTheme = createMuiTheme();
+
+const theme = createMuiTheme({
+  overrides: {
     MuiInputAdornment: {
       root: {
           display: 'block',
           position: 'absolute',
-          right: 5,
+          right: 260,
           bottom: 50,
       }
     },
     MuiButton: {
       root: {
-        color: '#FFFFFF',
+        color: colors.white,
         border: 'none',
         borderRadius: '6px',
         boxShadow: '0',
         textTransform: 'inherit',
-        backgroundColor: '#6D9B12',
-        boxSizing: 'border-box'
+        backgroundColor: colors.green,
+        boxSizing: 'border-box',
       },
+  
       label: {
         fontFamily: 'Roboto',
         fontSize: '16px',
@@ -29,39 +38,38 @@ const theme = createMuiTheme({
       },
       outlinedPrimary: {
         color: '#FFF',
-        backgroundColor: '#6D9B12',
+        backgroundColor: colors.green,
            '&:hover': {
           backgroundColor: 'green'
         }
       },
       containedPrimary: {
-        backgroundColor: '#6D9B12',
-        // padding: '16px 38px',
-       
+        backgroundColor: colors.green,
         boxShadow: '0',
       },
       containedSecondary: {
-        padding: '16px 38px',
-        backgroundColor: '#4285F4',
+        padding: defaultTheme.spacing(2, 5),
+        backgroundColor: colors.blue,
       },
        outlinedSecondary: {
-        padding: '16px 38px',
-         backgroundColor: '#4285F4',
+        padding: defaultTheme.spacing(2, 5),
+         backgroundColor: colors.blue,
         color: '#FFF'
       },
       outlined: {
-        backgroundColor: '#e0e0e0', color: 'rgba(0, 0, 0, 0.87)',
+        backgroundColor: colors.gray, opacity: '0.87',
      
       },
-      contained: {padding: '16px 38px', boxShadow: '0'},
+      contained: {padding: defaultTheme.spacing(2, 5), boxShadow: '0'},
       containedSizeLarge: {
-        padding: '16px 50px'
+        padding: defaultTheme.spacing(2, 6.25)
       },
+   
       containedSizeSmall: {
-        padding: '10px 32px',
+        padding: defaultTheme.spacing(1.25, 4),
       },
       outlinedSizeLarge: {
-        padding: '16px 100px',
+        padding: defaultTheme.spacing(2, 12.5),
         outline: 'none',
         border: 'none',
       },
@@ -72,26 +80,29 @@ const theme = createMuiTheme({
       root: {
           padding: 0,
           '&$ input:focus': {
-          borderColor: '#6D9B12',
+          borderColor: colors.green,
           borderWidth: '1px',
-          borderStyle: 'solid'
+          borderStyle: 'solid',
+          
         },
           
       },
       input: {
-            borderColor: 'transparent',
-            borderWidth: '1px',
-            borderStyle: 'solid',
-            padding: '25px 354px 25px 14px', boxSizing: 'border-box',
+        background: '#EFEFEF',
+        borderColor: 'transparent',
+        borderWidth: '1px',
+        borderRadius: '6px',
+        borderStyle: 'solid',
+        padding: defaultTheme.spacing(3.125, 44.25, 3.125, 1.75), boxSizing: 'border-box',
        '&:focus': {
          borderRadius: '6px',
-         borderColor: '#6D9B12',
+         borderColor: colors.green,
          borderWidth: '1px',
          borderStyle: 'solid'
         },
          '&:invalid': {
           borderRadius: '6px',
-          borderColor: '#FF0000',
+          borderColor: colors.red,
           borderWidth: '1px'
           },
       },
@@ -113,7 +124,7 @@ const theme = createMuiTheme({
         disableAnimation: true,
         color: '#000000',
         '& + .MuiFormControl .MuiInputBase input:focus': {
-          color: '#6D9B12',
+          color: colors.green,
         },
         '& + .MuiFormControl .MuiInputBase input:error': {
           borderRadius: '6px',
@@ -123,7 +134,7 @@ const theme = createMuiTheme({
       },
       formControl: {
         transform: 'none',
-        top: '-40%'
+        top: '-10%'
       }
     
     },
@@ -139,12 +150,11 @@ const theme = createMuiTheme({
         lineHeight: '1.29',
         position: 'absolute',
         bottom: -20,
-        left: 0
+        left: 255
       },
     },
     MuiTextField: {
       root: {
-        background: '#EFEFEF',
         borderRadius: '6px',
         border: 'none',
       },
@@ -166,8 +176,8 @@ const theme = createMuiTheme({
       subtitle1: { fontWeight: 700, fontSize: '14px', lineHeight: '16px' },
       subtitle2: { fontWeight: 300, fontSize: '14px', lineHeight: '16px' },
       body1: { fontWeight: 700, fontSize: '16px', lineHeight: '19px', textAlign: 'center' },
-      caption: { fontWeight: 700, fontSize: '32px', lineHeight: '37px', whiteSpace: 'pre-line', margin: '0 0 0 25px' },
-      body2: {fontWeight: 700, fontSize: '16px', lineHeight: '19px', textAlign: 'center', margin: '0 0 0 10px' }
+      caption: { fontWeight: 700, fontSize: '32px', lineHeight: '37px', whiteSpace: 'pre-line', margin: defaultTheme.spacing(0, 0, 0, 3.125) },
+      body2: {fontWeight: 700, fontSize: '16px', lineHeight: '19px', textAlign: 'center', margin: defaultTheme.spacing(0, 0, 0, 1.25) }
     },
   },
 });

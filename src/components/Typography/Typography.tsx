@@ -19,11 +19,11 @@ interface ITypography {
     | 'overline'
     | 'srOnly'
     | undefined;
-  text: string;
+  children: React.ReactElement | string;
 }
 
-const TypographyEl = ({ variant, text }: ITypography): JSX.Element => {
-  return <Typography variant={variant}>{text}</Typography>;
+const TypographyEl = ({ variant, children }: ITypography): JSX.Element => {
+  return <Typography variant={variant}>{children}</Typography>;
 };
 
 export default TypographyEl;

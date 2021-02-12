@@ -38,35 +38,41 @@ const Signup = (): JSX.Element => {
   };
 
   return (
-    <Box mb={1}>
-      <Box mb={17}>
-        <Box mb={15}>
-          <TypographyEl
-            variant="caption"
-            text={`Sign up to set your brand up
-             for success`}
+    <Box mt={19} mr="auto" ml="auto" mb={10}>
+      <Box mb={1} display="flex" justifyContent="center" flexWrap="wrap">
+        <Box mb={11} display="block">
+          <TypographyEl variant="caption">
+            <Box>
+              Sign up to set your brand up <br />
+              for success
+            </Box>
+          </TypographyEl>
+        </Box>
+        <Box display="flex" width="100%" justifyContent="center" mb={4.25}>
+          <Box mr={1.25}>
+            <ButtonEl
+              variant="contained"
+              size="large"
+              color="secondary"
+              text="Sign up with Google"
+              icon={googleIcon}
+            />
+          </Box>
+
+          <ButtonEl
+            variant="contained"
+            size="large"
+            color="default"
+            text="Sign up with Microsoft"
+            icon={microsoftIcon}
           />
         </Box>
-        <ButtonEl
-          variant="contained"
-          size="large"
-          color="secondary"
-          text="Sign up with Google"
-          icon={googleIcon}
-        />
-        <ButtonEl
-          variant="contained"
-          size="large"
-          color="default"
-          text="Sign up with Microsoft"
-          icon={microsoftIcon}
-        />
       </Box>
 
-      <Box mb={2}>
-        <TypographyEl variant="body1" text="or" />
+      <Box mb={7}>
+        <TypographyEl variant="body1">or</TypographyEl>
       </Box>
-      <Box mb={3}>
+      <Box mb={1}>
         <Formik
           initialValues={{
             email: '',
@@ -90,7 +96,7 @@ const Signup = (): JSX.Element => {
               <Form onSubmit={handleSubmit}>
                 <TextFieldEl
                   label="Full Name"
-                  mb={10}
+                  mb={6.25}
                   onChange={handleChange}
                   id="name"
                   value={values.name}
@@ -101,7 +107,7 @@ const Signup = (): JSX.Element => {
                 <TextFieldEl
                   label="Email Address"
                   type="email"
-                  mb={25}
+                  mb={6.25}
                   onChange={handleChange}
                   helpText={errors.email}
                   id="email"
@@ -114,7 +120,7 @@ const Signup = (): JSX.Element => {
                   helpText={errors.password}
                   type="password"
                   name="password"
-                  mb={25}
+                  mb={6.25}
                   onChange={handleChange}
                   id="password"
                   value={values.password}

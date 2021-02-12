@@ -50,10 +50,8 @@ const TextFieldEl = ({
   return (
     <BoxComponent mb={mb}>
       <FormControl error={error}>
-        <InputLabel htmlFor="textField" shrink={true}>
-          {label}
-        </InputLabel>
         <TextField
+          label={label}
           value={value}
           id={id ? id : 'textField'}
           placeholder="Placeholder"

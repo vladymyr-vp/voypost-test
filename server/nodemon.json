@@ -1,0 +1,8 @@
+{
+    "env": {
+        "mongoDatabase": "tripsBase",
+        "mongoUserName": "vladymyr",
+        "mongoUserPassword": "qwer2134",
+        "googleAPIkey": "AIzaSyBCO-W2p8-lmBp2g51DnbIYelcY4Fk9ej4"
+    }
+}

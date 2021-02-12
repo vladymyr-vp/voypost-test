@@ -23,5 +23,5 @@
   },
   "include": [
     "src"
-  ]
+, "client/apollo.config.js", "server/schema.ts", "server/Map"  ]
 }

@@ -3,9 +3,9 @@ import Button from '@material-ui/core/Button';
 import Typography from '../Typography/Typography';
 
 interface IButton {
-  color: 'inherit' | 'default' | 'primary' | 'secondary' | undefined;
-  size: 'small' | 'medium' | 'large' | undefined;
-  variant: 'text' | 'outlined' | 'contained' | undefined;
+  color: 'inherit' | 'default' | 'primary' | 'secondary';
+  size: 'small' | 'medium' | 'large';
+  variant: 'text' | 'outlined' | 'contained';
   text: string;
   disabled?: boolean;
   onClick?: (e: any) => void;
@@ -30,7 +30,7 @@ const ButtonEl = ({
       onClick={onClick}
     >
       {icon && <img src={icon} alt="buttonIcon"></img>}{' '}
-      <Typography variant="body2" text={text} />
+      <Typography variant="body2">{text}</Typography>
     </Button>
   );
 };
