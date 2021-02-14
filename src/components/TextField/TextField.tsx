@@ -1,7 +1,6 @@
 import React from 'react';
 import TextField from '@material-ui/core/TextField';
 import FormControl from '@material-ui/core/FormControl';
-import FormHelperText from '@material-ui/core/FormHelperText';
 
 import BoxComponent from '../Box';
 

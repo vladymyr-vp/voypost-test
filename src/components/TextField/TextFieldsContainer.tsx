@@ -1,10 +1,10 @@
 import React from 'react';
 import TextFieldEl from './TextField';
-import BoxComponent from '../Box/Box';
+import Box from '../Box/Box';
 
 const TextFieldsContainer = (): JSX.Element => {
   return (
-    <BoxComponent mb={1}>
+    <Box mb={1}>
       <TextFieldEl label="Full Name" mb={10} />
       <TextFieldEl label="Email Address" type="email" mb={10} />
       <TextFieldEl
@@ -14,7 +14,7 @@ const TextFieldsContainer = (): JSX.Element => {
         type="password"
         error
       />
-    </BoxComponent>
+    </Box>
   );
 };
 

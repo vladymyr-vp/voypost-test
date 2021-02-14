@@ -161,14 +161,12 @@ const Signup = (): JSX.Element => {
                   </Box>
                 </TextFieldEl>
 
-                <div
-                  style={{
-                    display: 'flex',
-                    justifyContent: 'flex-start',
-                    flexWrap: 'wrap',
-                    width: '550px',
-                    margin: '0 auto',
-                  }}
+                <Box
+                  display="flex"
+                  justifyContent="flex-start"
+                  flexWrap="wrap"
+                  width="550px"
+                  margin="0 auto"
                 >
                   <InputLabel
                     id="checkboxLabel"
@@ -202,7 +200,7 @@ const Signup = (): JSX.Element => {
                     </div>
                   </InputLabel>
 
-                  <div style={{ marginTop: '10px' }}>
+                  <Box marginTop="10px">
                     <ButtonEl
                       variant="outlined"
                       size="large"
@@ -218,8 +216,8 @@ const Signup = (): JSX.Element => {
                     >
                       Sign Up
                     </ButtonEl>
-                  </div>
-                </div>
+                  </Box>
+                </Box>
               </Form>
             );
           }}

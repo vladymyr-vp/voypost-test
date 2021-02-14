@@ -16,7 +16,7 @@ const theme = createMuiTheme({
       root: {
           display: 'block',
           position: 'absolute',
-          right: -280,
+          right: -275,
           bottom: 50,
       }
     },
@@ -39,28 +39,47 @@ const theme = createMuiTheme({
       outlinedPrimary: {
         color: '#FFF',
         backgroundColor: colors.green,
-           '&:hover': {
-          backgroundColor: 'green'
-        }
       },
       containedPrimary: {
         backgroundColor: colors.green,
         boxShadow: '0',
+        '&:hover': {
+        backgroundColor: 'green',
+        border: 'none'
+        }
       },
       containedSecondary: {
         padding: defaultTheme.spacing(2, 5),
         backgroundColor: colors.blue,
+          '&:hover': {
+          backgroundColor: 'green',
+          border: 'none'
+        }
       },
        outlinedSecondary: {
         padding: defaultTheme.spacing(2, 5),
          backgroundColor: colors.blue,
-        color: '#FFF'
+         color: '#FFF',
+        '&:hover': {
+        backgroundColor: 'green',
+        border: 'none'
+        }
       },
       outlined: {
         backgroundColor: colors.gray, opacity: '0.87',
-     
+          '&:hover': {
+          backgroundColor: 'green',
+          border: 'none'
+        }
       },
-      contained: {padding: defaultTheme.spacing(2, 5), boxShadow: '0'},
+      contained: {
+        padding: defaultTheme.spacing(2, 5),
+        boxShadow: '0',
+        '&:hover': {
+        backgroundColor: 'green',
+        border: 'none'
+        }
+      },
       containedSizeLarge: {
         padding: defaultTheme.spacing(2, 6.25)
       },
@@ -72,13 +91,17 @@ const theme = createMuiTheme({
         padding: defaultTheme.spacing(2, 12.5),
         outline: 'none',
         border: 'none',
+          '&:hover': {
+        backgroundColor: 'green',
+        border: 'none'
+        }
       },
         
 
     },
     MuiInputBase: {
       root: {
-          padding: 0,
+        padding: 0,
       },
           
       input: {
