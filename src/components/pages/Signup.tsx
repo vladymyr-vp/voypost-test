@@ -4,11 +4,15 @@ import Checkbox from '@material-ui/core/Checkbox';
 import { Formik, Form } from 'formik';
 import Box from '../Box';
 import ButtonEl from '../Button/Button';
-import InputLabel from '@material-ui/core/InputLabel';
 import TextFieldEl from '../TextField/TextField';
 import TypographyEl from '../Typography/Typography';
 import googleIcon from 'images/google.svg';
 import microsoftIcon from 'images/microsoft.svg';
+import InputLabel from '@material-ui/core/InputLabel';
+import InputAdornment from '@material-ui/core/InputAdornment';
+import Visibility from '@material-ui/icons/Visibility';
+import VisibilityOff from '@material-ui/icons/VisibilityOff';
+import IconButton from '@material-ui/core/IconButton';
 
 const SignUpSchema = yup.object().shape({
   name: yup
@@ -37,6 +41,18 @@ const Signup = (): JSX.Element => {
     setChecked(event.target.checked);
   };
 
+  const [showPassword, setShowpassword] = React.useState(false);
+
+  const handleClickShowPassword = () => {
+    setShowpassword(state => !state);
+  };
+
+  const handleMouseDownPassword = (
+    event: React.MouseEvent<HTMLButtonElement>,
+  ): void => {
+    event.preventDefault();
+  };
+
   return (
     <Box mt={19} mr="auto" ml="auto" mb={10}>
       <Box mb={1} display="flex" justifyContent="center" flexWrap="wrap">
@@ -50,22 +66,30 @@ const Signup = (): JSX.Element => {
         </Box>
         <Box display="flex" width="100%" justifyContent="center" mb={4.25}>
           <Box mr={1.25}>
-            <ButtonEl
-              variant="contained"
-              size="large"
-              color="secondary"
-              text="Sign up with Google"
-              icon={googleIcon}
-            />
+            <ButtonEl variant="contained" size="large" color="secondary">
+              <Box display="flex">
+                <img
+                  src={googleIcon}
+                  alt="googleIcon"
+                  style={{ marginRight: '10px' }}
+                ></img>
+                <TypographyEl variant="body1">Sign up with Google</TypographyEl>
+              </Box>
+            </ButtonEl>
           </Box>
 
-          <ButtonEl
-            variant="contained"
-            size="large"
-            color="default"
-            text="Sign up with Microsoft"
-            icon={microsoftIcon}
-          />
+          <ButtonEl variant="contained" size="large" color="default">
+            <Box display="flex">
+              <img
+                src={microsoftIcon}
+                alt="googleIcon"
+                style={{ marginRight: '10px' }}
+              ></img>
+              <TypographyEl variant="body1">
+                Sign up with Microsoft
+              </TypographyEl>
+            </Box>
+          </ButtonEl>
         </Box>
       </Box>
 
@@ -116,16 +140,26 @@ const Signup = (): JSX.Element => {
                 />
                 <TextFieldEl
                   label="Password (8 characters)"
-                  //   helpText="Please input your password! The password must be at least 8 characters!"
                   helpText={errors.password}
-                  type="password"
+                  type={showPassword ? 'text' : 'password'}
                   name="password"
                   mb={6.25}
                   onChange={handleChange}
                   id="password"
                   value={values.password}
-                  showIcon
-                />
+                >
+                  <Box position="relative">
+                    <InputAdornment position="end">
+                      <IconButton
+                        aria-label="toggle password visibility"
+                        onClick={handleClickShowPassword}
+                        onMouseDown={handleMouseDownPassword}
+                      >
+                        {showPassword ? <Visibility /> : <VisibilityOff />}
+                      </IconButton>
+                    </InputAdornment>
+                  </Box>
+                </TextFieldEl>
 
                 <div
                   style={{
@@ -173,7 +207,6 @@ const Signup = (): JSX.Element => {
                       variant="outlined"
                       size="large"
                       color="primary"
-                      text="Sign Up"
                       onClick={handleSubmit}
                       disabled={
                         !checked ||
@@ -182,7 +215,9 @@ const Signup = (): JSX.Element => {
                         !values.password ||
                         !isValid
                       }
-                    />
+                    >
+                      Sign Up
+                    </ButtonEl>
                   </div>
                 </div>
               </Form>

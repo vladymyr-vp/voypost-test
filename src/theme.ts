@@ -16,7 +16,7 @@ const theme = createMuiTheme({
       root: {
           display: 'block',
           position: 'absolute',
-          right: 260,
+          right: -280,
           bottom: 50,
       }
     },
@@ -79,7 +79,6 @@ const theme = createMuiTheme({
     MuiInputBase: {
       root: {
           padding: 0,
-        
       },
           
       input: {
@@ -98,9 +97,10 @@ const theme = createMuiTheme({
           borderColor: colors.red,
           borderWidth: '1px',
           borderStyle: 'solid',
-        }, 
-      
-
+        },
+          '&:invalid label': {
+          color: colors.red,
+        },
       },
     
     },
@@ -118,7 +118,9 @@ const theme = createMuiTheme({
         lineHeight: '1.17',
         disableAnimation: true,
         color: '#000000',
-
+        invalid: {
+          color: colors.red
+        }
       },
       formControl: {
         transform: 'none',
@@ -130,7 +132,7 @@ const theme = createMuiTheme({
         '&.Mui-focused': {
         color: colors.green
         },
-        '& + .MuiInputBase-input:invalid': {
+          invalid: {
           color: colors.red
         }
       },
@@ -145,8 +147,8 @@ const theme = createMuiTheme({
         fontSize: '14px',
         lineHeight: '1.29',
         position: 'absolute',
-        bottom: -20,
-        left: 255
+        bottom: -25,
+        left: 5
       },
     },
     MuiTextField: {
@@ -159,7 +161,6 @@ const theme = createMuiTheme({
       root: {
         display: 'block',
         width: '100%',
-        marginBottom: '24px',
       },
       h1: {
         fontWeight: 900, fontSize: '36px', lineHeight: '42px'
